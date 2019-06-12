@@ -16,7 +16,7 @@ const checkLatestVersion = (packageName: string) => {
 
 const main = (packageName = "") => {
   if (packageName !== "") {
-    checkLatestVersion(packageName);
+    console.log(checkLatestVersion(packageName));
     process.exit(0);
   }
   try {
