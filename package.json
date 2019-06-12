@@ -1,6 +1,6 @@
 {
   "name": "ncv",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "npm check version",
   "license": "MIT",
   "author": "Jesse Katsumata <jesse.katsumata@gmail.com>",
