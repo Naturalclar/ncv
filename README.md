@@ -11,8 +11,21 @@ ncv [packageName]  - check latest version of specific package
 
 # installation
 
+You can run `ncv` by running the following command:
+
+```
+npx ncv
+```
+
+You can also install `ncv` globally
+
 ```
 yarn global add ncv
 ```
 
 In order to use the list feature, you also need to install `peco`(https://github.com/peco/peco)
+
+
+# demo
+
+![image](https://user-images.githubusercontent.com/6936373/59322414-f58a8580-8d10-11e9-960b-8479ec8146a8.png)
