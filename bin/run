@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+const exec = require("../lib");
+
+if (process.argv.length < 2) {
+  console.log("usage: ncv [package name]");
+}
+
+const [targetPackage] = process.argv.slice(2);
+
+exec(targetPackage);

@@ -1,0 +1,31 @@
+{
+  "name": "ncv",
+  "version": "0.0.1",
+  "description": "npm check version",
+  "license": "MIT",
+  "author": "Jesse Katsumata <jesse.katsumata@gmail.com>",
+  "files": [
+    "bin",
+    "lib",
+    "package.json",
+    "README.md"
+  ],
+  "main": "index.js",
+  "bin": {
+    "ncv": "./bin/run"
+  },
+  "scripts": {
+    "build": "tsc -w",
+    "prepare": "tsc",
+    "start": "./bin/run"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "which": "^1.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.8",
+    "@types/which": "^1.3.1",
+    "typescript": "^3.5.1"
+  }
+}
