@@ -28,4 +28,4 @@ In order to use the list feature, you also need to install `peco`(https://github
 
 # demo
 
-![image](https://user-images.githubusercontent.com/6936373/59322414-f58a8580-8d10-11e9-960b-8479ec8146a8.png)
+![demo](https://user-images.githubusercontent.com/6936373/59322487-4601e300-8d11-11e9-8809-faf59fb89880.gif)
