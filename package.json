@@ -2,6 +2,8 @@
   "name": "ncv",
   "version": "0.0.2",
   "description": "npm check version",
+  "homepage": "https://github.com/Naturalclar/ncv#readme",
+  "repository": "https://github.com/Naturalclar/ncv.git",
   "license": "MIT",
   "author": "Jesse Katsumata <jesse.katsumata@gmail.com>",
   "files": [
@@ -10,7 +12,7 @@
     "package.json",
     "README.md"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": {
     "ncv": "./bin/run"
   },
