@@ -3,7 +3,7 @@ import { execSync } from "child_process";
 import chalk from "chalk";
 import { sync as which } from "which";
 import { cwd } from "process";
-
+import { parse } from "./options";
 const linkText = chalk.white.bold.underline;
 const boldText = chalk.white.bold;
 
@@ -14,8 +14,19 @@ const checkLatestVersion = (packageName: string) => {
   return latest.trim();
 };
 
-const main = (packageName = "") => {
-  if (packageName !== "") {
+const listVersions = (packageName: string) => {
+  const latest = execSync(`npm show ${packageName} versions`, {
+    encoding: "utf8"
+  });
+  return latest.trim();
+};
+
+const main = (argv: string[]) => {
+  const options = parse(argv);
+  console.log(options.args);
+  return;
+  const packageName = "foo";
+  if (packageName !== "foo") {
     console.log(checkLatestVersion(packageName));
     process.exit(0);
   }
