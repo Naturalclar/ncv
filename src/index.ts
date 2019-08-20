@@ -3,7 +3,7 @@ import { execSync } from "child_process";
 import chalk from "chalk";
 import { sync as which } from "which";
 import { cwd } from "process";
-import { parse } from "./options";
+import { parse, Options } from "./options";
 const linkText = chalk.white.bold.underline;
 const boldText = chalk.white.bold;
 
@@ -23,7 +23,8 @@ const listVersions = (packageName: string) => {
   return latest.trim();
 };
 
-const chooseFromPackage = () => {
+const chooseFromPackage = (options: Options) => {
+  // check if peco exists. Throw error if peco does not exist
   try {
     which("peco");
   } catch (error) {
@@ -35,9 +36,13 @@ const chooseFromPackage = () => {
     process.exit(1);
   }
 
+  // Display packages in package.json
   try {
     const pkg = require(path.join(cwd(), "package.json"));
+    // if package.json does not exist, throw error
     if (!pkg) {
+      console.error(`${boldText("package.json not found.")}`);
+      process.exit(1);
     }
     let packages: string[] = [];
     if (pkg.dependencies) {
@@ -51,7 +56,13 @@ const chooseFromPackage = () => {
     }
     const targetPackage = execSync(`echo \"${packages.join("\n")}\" | peco`);
     const targetPackageString = targetPackage.toString().trim();
-    console.log(checkLatestVersion(targetPackageString));
+    if (options.all) {
+      // Display all versions of selected package
+      console.log(listVersions(targetPackageString));
+    } else {
+      // Display the latest vesrion of selected package
+      console.log(checkLatestVersion(targetPackageString));
+    }
   } catch (error) {
     if (error.message.includes("Cannot find module")) {
       console.error(
@@ -70,7 +81,7 @@ const main = (argv: string[]) => {
   const options = parse(argv);
 
   if (options.args.length === 0) {
-    chooseFromPackage();
+    chooseFromPackage(options);
     process.exit(0);
   }
 
