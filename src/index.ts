@@ -8,6 +8,7 @@ const linkText = chalk.white.bold.underline;
 const boldText = chalk.white.bold;
 
 const checkLatestVersion = (packageName: string) => {
+  console.log(packageName);
   const latest = execSync(`npm show ${packageName} version`, {
     encoding: "utf8"
   });
@@ -15,21 +16,14 @@ const checkLatestVersion = (packageName: string) => {
 };
 
 const listVersions = (packageName: string) => {
+  console.log(packageName);
   const latest = execSync(`npm show ${packageName} versions`, {
     encoding: "utf8"
   });
   return latest.trim();
 };
 
-const main = (argv: string[]) => {
-  const options = parse(argv);
-  console.log(options.args);
-  return;
-  const packageName = "foo";
-  if (packageName !== "foo") {
-    console.log(checkLatestVersion(packageName));
-    process.exit(0);
-  }
+const chooseFromPackage = () => {
   try {
     which("peco");
   } catch (error) {
@@ -70,8 +64,26 @@ const main = (argv: string[]) => {
     console.error(error.message);
     process.exit(1);
   }
+};
 
-  process.exit(0);
+const main = (argv: string[]) => {
+  const options = parse(argv);
+
+  if (options.args.length === 0) {
+    chooseFromPackage();
+    process.exit(0);
+  }
+
+  const packageName = options.args[0];
+  if (options.all) {
+    console.log(listVersions(packageName));
+    process.exit(0);
+  }
+
+  if (packageName !== "") {
+    console.log(checkLatestVersion(packageName));
+    process.exit(0);
+  }
 };
 
 module.exports = main;
