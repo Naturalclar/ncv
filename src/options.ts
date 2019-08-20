@@ -5,4 +5,10 @@ program
   .arguments("<package>")
   .option("-a, --all", "output all versions");
 
-export const parse = (args: string[]) => program.parse(args);
+export type Options = {
+  all?: boolean;
+  args: string[];
+};
+
+export const parse = (args: string[]): Options =>
+  program.parse(args) as Options;
