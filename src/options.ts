@@ -1,5 +1,6 @@
 import program from "commander";
-import { version } from "../package.json";
+
+const { version } = require("../package.json");
 
 program
   .version(version, "-v, --version", "output the current version")
