@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+const exec = require("../lib");
+console.log("Thank you for downloading ncv!");
+
+exec(["node", "ncv", "-h"]);

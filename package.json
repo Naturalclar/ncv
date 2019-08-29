@@ -20,7 +20,8 @@
     "dev": "tsc -w",
     "build": "tsc",
     "prepare": "yarn build",
-    "start": "./bin/run"
+    "start": "./bin/run",
+    "postinstall": "./bin/welcome"
   },
   "dependencies": {
     "chalk": "^2.4.2",
