@@ -89,7 +89,7 @@ const main = (argv: string[]) => {
   }
 
   const packageName = options.args[0];
-  if (options.all) {
+  if (options.opts().all) {
     console.log(listVersions(packageName));
     process.exit(0);
   }

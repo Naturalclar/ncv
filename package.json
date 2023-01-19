@@ -6,25 +6,26 @@
   "repository": "https://github.com/Naturalclar/ncv.git",
   "license": "MIT",
   "author": "Jesse Katsumata <jesse.katsumata@gmail.com>",
+  "main": "lib/index.js",
+  "bin": {
+    "ncv": "./bin/run"
+  },
+  "types": "modules",
   "files": [
     "bin",
     "lib",
     "package.json",
     "README.md"
   ],
-  "main": "lib/index.js",
-  "bin": {
-    "ncv": "./bin/run"
-  },
   "scripts": {
-    "dev": "tsc -w",
     "build": "tsc",
+    "dev": "tsc -w",
+    "format": "prettier --write .",
     "prepare": "pnpm build",
-    "start": "./bin/run",
-    "format": "prettier --write ."
+    "start": "./bin/run"
   },
   "dependencies": {
-    "chalk": "^5.2.0",
+    "chalk": "^4.1.2",
     "commander": "^10.0.0",
     "which": "^3.0.0"
   },
