@@ -19,9 +19,22 @@ npx ncv
 
 You can also install `ncv` globally
 
+Using npm:
+```
+npm install -g ncv
+```
+
+Using pnpm:
+```
+pnpm add -g ncv
+```
+
+Using yarn:
 ```
 yarn global add ncv
 ```
+
+
 
 In order to use the list feature, you also need to install `peco`(https://github.com/peco/peco)
 
