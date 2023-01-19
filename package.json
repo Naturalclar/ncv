@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
-    "prepare": "yarn build",
+    "prepare": "pnpm build",
     "start": "./bin/run",
     "format": "prettier --write ."
   },
