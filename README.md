@@ -25,7 +25,6 @@ yarn global add ncv
 
 In order to use the list feature, you also need to install `peco`(https://github.com/peco/peco)
 
-
 # demo
 
 ![demo](https://user-images.githubusercontent.com/6936373/59322487-4601e300-8d11-11e9-8809-faf59fb89880.gif)
