@@ -10,7 +10,7 @@ const boldText = chalk.white.bold;
 const checkLatestVersion = (packageName: string) => {
   console.log(packageName);
   const latest = execSync(`npm show ${packageName} version`, {
-    encoding: "utf8"
+    encoding: "utf8",
   });
   return latest.trim();
 };
@@ -18,7 +18,7 @@ const checkLatestVersion = (packageName: string) => {
 const listVersions = (packageName: string) => {
   console.log(packageName);
   const latest = execSync(`npm show ${packageName} versions`, {
-    encoding: "utf8"
+    encoding: "utf8",
   });
   return latest.trim();
 };
@@ -64,6 +64,9 @@ const chooseFromPackage = (options: Options) => {
       console.log(checkLatestVersion(targetPackageString));
     }
   } catch (error) {
+    if (!(error instanceof Error)) {
+      process.exit(1);
+    }
     if (error.message.includes("Cannot find module")) {
       console.error(
         `${boldText("package.json not found.")} \nMake sure ${boldText(
